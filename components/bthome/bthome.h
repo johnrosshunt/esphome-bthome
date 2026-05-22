@@ -17,7 +17,9 @@
   #include <esp_timer.h>  // For esp_timer_get_time()
   #ifdef USE_BTHOME_NIMBLE
     // NimBLE stack (lighter weight, broadcast-only)
-    #include "esp_nimble_hci.h"
+    #if !defined(USE_ESP32_VARIANT_ESP32C6)
+      #include "esp_nimble_hci.h"
+    #endif
     #include "nimble/nimble_port.h"
     #include "nimble/nimble_port_freertos.h"
     #include "host/ble_hs.h"
