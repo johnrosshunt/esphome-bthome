@@ -10,7 +10,9 @@
 // Platform-specific includes
 #ifdef USE_ESP32
   #ifdef USE_BTHOME_NIMBLE
-    #include "esp_nimble_hci.h"
+    #if !defined(USE_ESP32_VARIANT_ESP32C6)
+      #include "esp_nimble_hci.h"
+    #endif
     #include "nimble/nimble_port.h"
     #include "nimble/nimble_port_freertos.h"
     #include "host/ble_hs.h"
